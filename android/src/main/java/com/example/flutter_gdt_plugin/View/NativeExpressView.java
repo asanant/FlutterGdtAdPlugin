@@ -2,6 +2,7 @@ package com.example.flutter_gdt_plugin.View;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -57,6 +58,8 @@ public class NativeExpressView implements PlatformView,NativeExpressAD.NativeExp
     @Override
     public void onNoAD(AdError adError) {
         mMethodChannel.invokeMethod("onNoAD", adError.getErrorMsg());
+
+        Log.e("onNoAD",adError.getErrorMsg());
 
     }
 
