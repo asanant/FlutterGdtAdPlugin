@@ -22,7 +22,7 @@ class GDTNativeView extends StatefulWidget{
 
 }
 
-class StateGDTNativeView extends State<GDTNativeView>{
+class StateGDTNativeView extends State<GDTNativeView> with AutomaticKeepAliveClientMixin{
   Size  size;
 
   @override
@@ -33,7 +33,10 @@ class StateGDTNativeView extends State<GDTNativeView>{
 
   }
   @override
+  bool get wantKeepAlive => true;
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     // TODO: implement build
     if(!FlutterGdtPlugin.isInit){
       return SizedBox();
@@ -43,7 +46,6 @@ class StateGDTNativeView extends State<GDTNativeView>{
 
       return Container(
         height: size.height,
-        color: Colors.red,
         child: AndroidView(
           viewType:"flutter_gdt_plugin/native_list",
           creationParamsCodec: const StandardMessageCodec(),

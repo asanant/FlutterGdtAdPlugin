@@ -21,7 +21,7 @@ class GDTBannerView extends StatefulWidget{
 
 }
 
-class StateGDTBannerView extends State<GDTBannerView>{
+class StateGDTBannerView extends State<GDTBannerView>  with AutomaticKeepAliveClientMixin{
   Size  size;
 
   @override
@@ -31,8 +31,12 @@ class StateGDTBannerView extends State<GDTBannerView>{
     size = Size.fromHeight(1);
 
   }
+
+  @override
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     // TODO: implement build
     if(!FlutterGdtPlugin.isInit){
       return SizedBox();
