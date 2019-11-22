@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gdt_plugin/GDTListeners.dart';
 import 'package:flutter_gdt_plugin/flutter_gdt_plugin.dart';
@@ -42,6 +43,7 @@ class StateGDTNativeView extends State<GDTNativeView>{
 
       return Container(
         height: size.height,
+        color: Colors.red,
         child: AndroidView(
           viewType:"flutter_gdt_plugin/native_list",
           creationParamsCodec: const StandardMessageCodec(),
@@ -63,9 +65,9 @@ class StateGDTNativeView extends State<GDTNativeView>{
 
   void onPlatformViewCreated(int id) {
 
-    GDTListeners listeners =new GDTListeners(onADExposure:(width,height){
+    GDTListeners listeners =new GDTListeners(onADExposure:(value){
       setState(() {
-        size = Size(width,height);
+        size = value;
       });
     });
     listeners.bindChannel("flutter_gdt_plugin/native_list$id");

@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-typedef doubleTwoCallBack =Function (double,double);
+typedef doubleTwoCallBack =Function (Size);
 class GDTListeners {
   doubleTwoCallBack onADExposure;
   MethodChannel channel;
@@ -19,7 +19,10 @@ class GDTListeners {
   Future handleMessages(MethodCall call) {
     switch(call.method){
       case "onADExposure":
-        this.onADExposure(double.tryParse(call.arguments["width"].toString()), double.tryParse(call.arguments["height"].toString()));
+        Size size = Size(double.tryParse(call.arguments["width"].toString()),
+            double.tryParse(call.arguments["height"].toString()));
+        size = size / window.devicePixelRatio;
+        this.onADExposure(size);
         break;
     }
   }

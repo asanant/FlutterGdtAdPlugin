@@ -62,9 +62,9 @@ class StateGDTBannerView extends State<GDTBannerView>{
 
   void onPlatformViewCreated(int id) {
 
-    GDTListeners listeners =new GDTListeners(onADExposure:(width,height){
+    GDTListeners listeners =new GDTListeners(onADExposure:(value){
       setState(() {
-        size = Size(width,height);
+        size = value;
       });
     });
     listeners.bindChannel("flutter_gdt_plugin/banner$id");

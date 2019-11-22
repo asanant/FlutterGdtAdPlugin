@@ -45,8 +45,11 @@ public class NativeExpressView implements PlatformView,NativeExpressAD.NativeExp
     @Override
     public void dispose() {
         mNativeExpressAD=null;
-        mFrameLayout.removeAllViews();
-        mFrameLayout=null;
+        if(mFrameLayout!=null){
+            mFrameLayout.removeAllViews();
+            mFrameLayout=null;
+        }
+
     }
 
     private NativeExpressAD getExpressAD() {
@@ -106,10 +109,10 @@ public class NativeExpressView implements PlatformView,NativeExpressAD.NativeExp
 
     @Override
     public void onADExposure(NativeExpressADView nativeExpressADView) {
-        HashMap<String, Object> rets = new HashMap<>();
+     /*   HashMap<String, Object> rets = new HashMap<>();
         rets.put("width", nativeExpressADView.getWidth());
         rets.put("height", nativeExpressADView.getHeight());
-        mMethodChannel.invokeMethod("onADExposure", rets);
+        mMethodChannel.invokeMethod("onADExposure", rets);*/
     }
 
     @Override

@@ -52,8 +52,8 @@ class _MyAppState extends State<MyApp> {
         body: Container(
           child: Column(
             children: <Widget>[
-              GDTNativeView(posId: "5010593035997579",),
-              GDTBannerView(posId: "4030496045997614")
+              GDTNativeView(posId: "2090098005290672",),
+            //  GDTBannerView(posId: "4030496045997614")
 
             ],
           ),
