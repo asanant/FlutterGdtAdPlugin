@@ -108,7 +108,7 @@ public class NativeExpressView implements PlatformView,NativeExpressAD.NativeExp
     public void onADExposure(NativeExpressADView nativeExpressADView) {
         HashMap<String, Object> rets = new HashMap<>();
         rets.put("width", nativeExpressADView.getWidth());
-        rets.put("height", nativeExpressADView.getWidth());
+        rets.put("height", nativeExpressADView.getHeight());
         mMethodChannel.invokeMethod("onADExposure", rets);
     }
 
